@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>My first Leaflet</title>
+<!-- Link leaflet css and javascript-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+</head>
+<h1><b style="color:#75464A;"> สถานที่ท่องเที่ยวญี่ปุ่น(โตเกียว) <b></h1>
+<p style="color:#75464A;"><strong><em>Anuphon</em></strong></p>
+<body style="background : url(Tokyo.jpg); background-size: contain; background-repeat: no-repeat;">
+  </body>
+
+<div id="map" style="width: 1000px; height: 700px"></div>
+<script>
+var map = L.map('map').setView([35.68502243638849, 139.75358763092368],12);
+mapLink ='<a href="http://openstreetmap.org">Anuphon.</a>';
+ L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+attribution: 'Map data &copy; ' + mapLink,
+maxZoom: 18,
+}).addTo(map);
+
+var greenIcon = L.icon({
+iconUrl: 'https://leafletjs.com/SlavaUkraini/examples/custom-icons/leaf-red.png',
+shadowUrl: 'https://leafletjs.com/SlavaUkraini/examples/custom-icons/leaf-shadow.png',
+
+ iconSize: [38, 95], // size of the icon
+shadowSize: [50, 64], // size of the shadow
+iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+shadowAnchor: [4, 62], // the same for the shadow
+popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+
+var marker = L.marker([35.714939301944995, 139.7966552971604],{icon:greenIcon,title:'วัดเซ็นโซ',opacity:1.5}).addTo(map).bindPopup("<b>Effiel Tower</b>").openPopup();
+var marker = L.marker([35.71023691222587, 139.8107111259956],{icon:greenIcon,title:'โตเกียวสกายทรี',opacity:1.5}).addTo(map).bindPopup("<b>Louvre Museum</b>").openPopup();
+var marker = L.marker([35.676510878879355, 139.6994009990068],{icon:greenIcon,title:"ศาลเจ้าเมจิ",opacity:1.5}).addTo(map).bindPopup("<b>Champs Elysées</b>").openPopup();
+var marker = L.marker([35.633079500784554, 139.88038356832251],{icon:greenIcon,title:'โตเกียวดิสนีย์แลนด์',opacity:1.5}).addTo(map).bindPopup("<b>Place de la Concorde</b>").openPopup();
+var marker = L.marker([35.685224228816956, 139.70976694834837 ],{icon:greenIcon,title:"อุทยานแห่งชาติชินจูกุเกียวเอน",opacity:1.5}).addTo(map).bindPopup("<b>Cathédrale Notre-Dame de Paris</b>").openPopup();
+
+</script>
+</body>
+</html>
